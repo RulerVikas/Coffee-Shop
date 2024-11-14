@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to Coffee Bliss, where every cup tells a story. Explore our menu and special offers!">
+    <meta name="keywords" content="Coffee, Coffee Shop, Espresso, Croissant, Cafe">
+    <meta name="author" content="Coffee Bliss">
+    <title>Coffee Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Include AOS library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header data-aos="fade-down">
+        <div class="logo">
+            <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Fvectors%2Fcoffee-logo&psig=AOvVaw148xF42OZ0O2wTgkhSSp0p&ust=1723522493232000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJj47r_M7ocDFQAAAAAdAAAAABAk" alt="Coffee Shop Logo">
+        </div>
+        <nav>
+            <ul id="nav-links" class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#offers">Special Offers</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Parallax Effect -->
+    <section id="home" class="hero">
+        <div class="parallax" id="parallax"></div>
+        <div class="hero-text" data-aos="fade-up">
+            <h1>Welcome to Our Coffee Shop</h1>
+            <p>Where every cup tells a story.</p>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section id="about" class="introduction" data-aos="fade-up">
+        <h2>About Us</h2>
+        <p>At Coffee Bliss, we believe in serving the freshest coffee and snacks. Our passion for coffee is reflected in every cup we brew. Whether you’re here for a quick espresso or to relax with friends, we’ve got you covered!</p>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <h2 data-aos="fade-up">Our Menu</h2>
+        <div class="menu-item" data-aos="fade-right">
+            <img src="images/coffee.jpg" alt="Espresso">
+            <div class="description">
+                <h3>Espresso</h3>
+                <p>Rich and bold, our espresso is the perfect pick-me-up.</p>
+            </div>
+        </div>
+        <div class="menu-item" data-aos="fade-left">
+            <img src="images/snack.jpg" alt="Croissant">
+            <div class="description">
+                <h3>Croissant</h3>
+                <p>Buttery, flaky, and perfect with any of our coffees.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers Section -->
+    <section id="offers" class="offers">
+        <h2 data-aos="fade-up">Special Offers</h2>
+        <div class="offer-item" data-aos="fade-right">
+            <h3>Happy Hour</h3>
+            <p>Enjoy 50% off all coffees from 3 PM to 5 PM, Monday through Friday!</p>
+        </div>
+        <div class="offer-item" data-aos="fade-left">
+            <h3>Buy 1 Get 1 Free</h3>
+            <p>Purchase any large coffee and get a free pastry on weekends!</p>
+        </div>
+    </section>
+
+    <!-- Daily Specials Section -->
+    <section id="daily-specials" class="specials">
+        <h2 data-aos="fade-up">Today's Specials</h2>
+        <div id="specials-container" data-aos="fade-up"></div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact" data-aos="fade-up">
+        <h2>Contact Us</h2>
+        <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" aria-label="Your Name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" aria-label="Your Email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" aria-label="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div class="contact-info">
+            <p>Address: 123 Coffee Lane, Espresso City</p>
+            <p>Phone: (123) 456-7890</p>
+            <p>Email: info@coffeebliss.com</p>
+        </div>
+        <div class="social-media" data-aos="fade-up">
+            <a href="https://facebook.com"><img src="images/facebook-icon.png" alt="Facebook"></a>
+            <a href="https://twitter.com"><img src="images/twitter-icon.png" alt="Twitter"></a>
+            <a href="https://instagram.com"><img src="images/instagram-icon.png" alt="Instagram"></a>
+        </div>
+    </section>
+
+    <!-- Include AOS library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1200, // Adjust animation duration as needed
+            once: true // Animate only once when scrolling
+        });
+
+        // Parallax Effect for the Hero Section
+        window.addEventListener('scroll', function() {
+            const parallax = document.getElementById('parallax');
+            let scrollPosition = window.pageYOffset;
+            parallax.style.transform = 'translateY(' + scrollPosition * 0.5 + 'px)';
+        });
+
+        // Hamburger Menu Toggle
+        document.getElementById('hamburger').addEventListener('click', function() {
+            this.classList.toggle('toggle');
+            document.getElementById('nav-links').classList.toggle('active');
+        });
+
+        // Close Hamburger Menu on Link Click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav-links').classList.remove('active');
+                document.getElementById('hamburger').classList.remove('toggle');
+            });
+        });
+    </script>
+</body>
+</html>
